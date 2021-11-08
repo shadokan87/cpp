@@ -39,7 +39,7 @@ OBJS	=	$(SRCS:.cpp=.o)
 
 
 all:		$(NAME)
-			@echo "\t\t\n\t\t------\n\t${NAME}: generated\n\t\t------\n"
+			@echo -e "\t\t\n\t\t------\n\t${NAME}: generated\n\t\t------\n"
 			@echo "$$SPLASHART"
 
 $(NAME):	$(OBJS)
