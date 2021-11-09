@@ -1,8 +1,11 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
-#define LOG(x) std::cout << "LOG" << "[" << x << "]" << std::endl
+#include <sstream>
+#include <cctype>
+#include "Phonebook.hpp"
 #define MAIN_PROMPT "ADD | SEARCH | EXIT: "
+#define INDEX_PROMPT "SELECT INDEX | EXIT: "
 #define ADD "ADD"
 #define SEARCH "SEARCH"
 #define EXIT "EXIT"
@@ -12,71 +15,37 @@ typedef std::string str;
 str	fields[ ] = {"first name", "last name","nickname","phone number","darkest secret"
 };
 
-class	contact
+namespace ft
 {
-	private:
-		void	addInfo(int pos, str elem);
-	public:
-		str info[5];
-		contact(void);
-};
 
-contact::contact(void)
+bool	strIsdigit(str elem)
 {
-	return ;
+	for (int i = 0;i < elem.size();i++)
+		if (!std::isdigit(static_cast<unsigned char>(elem[i])))
+			return (false);
+	return (true);
 }
 
-void	contact::addInfo(int pos, str elem)
+int		stoi(str elem)
 {
-	if (pos < 8)
-		info[pos] = elem;
-	return ;
+	int	ret;
+
+	std::istringstream(elem) >> ret;
+	return (ret);
 }
-//-----------
-class Phonebook
-{
-	private:
-		contact contacts[8];
-		int pos;
-	public:
-		Phonebook(void);
-		contact *getContact(int index);
-		void	setPos(int pos);
-		int		getPos(void);
-};
-
-Phonebook::Phonebook(void) : pos(0)
-{
 }
-
-contact *Phonebook::getContact(int index)
-{
-	contact *ptr;
-
-	ptr = &contacts[index];
-	return (ptr);
-}
-
-void	Phonebook::setPos(int newPos)
-{
-	this->pos = newPos;
-	return ;
-}
-
-int		Phonebook::getPos(void)
-{
-	return (this->pos);
-}
-
 void	execCmd(str cmd, Phonebook &book)
 {
 	(void)cmd;
 	(void)book;
 	if (cmd == ADD || cmd == SEARCH)
 	{
-		if (cmd == ADD)
+		if (cmd == ADD) //prompt for ADD command
 		{
-			contact *ptr = book.getContact(book.getPos());
+			int	pos;
+
+			pos = book.getPos();
+			contact *ptr = book.getContact(pos == 8 ? 0 : pos);
 			for (int i = 0;i < 5;i++)
 			{
 				str in = "";
@@ -86,35 +55,72 @@ void	execCmd(str cmd, Phonebook &book)
 				std::cin >> in;
 				ptr->info[i] = in;
 			}
-			book.setPos(book.getPos() + 1);
+			if (pos != 8)
+				book.setPos(book.getPos() + 1);
 		}
 		else
 		{
+	#ifndef FORMAT
+	# define FORMAT(x) std::setw(10) << std::right
+	#endif
 			if (!book.getPos())
 			{
 				std::cout << "No contacts." << std::endl;
 				return ;
 			}
-			std::cout << "index" << " - ";
+			//display row
+			std::cout << FORMAT(10) << "index" << " | ";
 			for (int y = 0;y < 3;y++)
-			{
-				std::cout << fields[y];
-				y < 2 ? std::cout << " - " : 0;
-			}
+				std::cout << FORMAT(10) << fields[y] << " | ";
 			std::cout << std::endl;
+			//display columns
 			for (int i = 0;i < book.getPos();i++)
 			{
 				contact *ptr = book.getContact(i);
-				std::cout << std::right << i << " | ";
+				std::cout << FORMAT(10) << i << " | ";
 				for (int i = 0;i < 3;i++)
 				{
 					str current = ptr->info[i];
-					std::cout << std::right << current << " | ";
+					if (current.size() > 10)
+					{
+						current = current.substr(0, 9);
+						current = current + ".";
+					}
+					std::cout << FORMAT(10) << current << " | ";
 				}
 				std::cout << std::endl;
 			}
+			//prompt for index selection
+			str in = "";
+			bool ok = false;
+			while (1 && !std::cin.eof() && !ok)
+			{
+				std::cout << INDEX_PROMPT;
+				std::cin >> in;
+				if (in == EXIT)
+					break ;
+				//check if input is valid
+				if (ft::strIsdigit(in) == false)
+					std::cout << "Input must contain only numbers." << std::endl;
+				else if (ft::stoi(in) > book.getPos() - 1)
+					std::cout << "Index out of range." << std::endl;
+				else
+				{
+					contact *ptr = book.getContact(ft::stoi(in));
+					for (int i = 0;i < 5;i++)
+					{
+						std::cout << FORMAT(20) << fields[i] << ": " << ptr->info[i];
+						std::cout << std::endl;
+					}
+					ok = true;
+				}
+			}
 		}
 	}
+	else if (cmd != EXIT)
+		std::cout << "Unkown command: " << cmd << std::endl;
+	else
+		std::cout << "Exiting now." << std::endl;
 }
 
 int	main(int argc, char **argv)

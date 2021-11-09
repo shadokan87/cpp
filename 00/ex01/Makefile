@@ -22,9 +22,9 @@ define SPLASHART
    ::::::`:::::;'  /  /   `# 
 endef
 export SPLASHART
-NAME	=	megaphone
+NAME	=	phonebook
 
-CC		=	clang++
+CC		=	clang++ -std=c++98
 
 RM		=	rm -f
 
@@ -33,7 +33,7 @@ CFLAGS	=	-Wall -Wextra -Werror
 LFLAGS	=	-lpthread
 
 
-SRCS	=	./megaphone.cpp
+SRCS	=	./Phonebook.cpp Contact.cpp main.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 
