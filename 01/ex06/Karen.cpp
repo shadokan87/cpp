@@ -8,7 +8,6 @@ void	Karen::complain(str elem)
 {
 	static const char *levels[ ] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	int	i = -1;
-//	void	(Karen::* ptr[4])(void) = {&Karen::debug, &Karen::info, &Karen::warning, &Karen::error};
 	while (++i < 4 && elem != levels[i]);
 	switch (i)
 	{
