@@ -9,8 +9,12 @@ class Fixed
 		Fixed(void);
 		~Fixed(void);
 		Fixed(int elem);
-		Fixed &operator=(const Fixed &src);
+		Fixed(float elem);
+		Fixed &operator=(const Fixed &dst);
+		int	toInt(void) const;
+		float toFloat(void) const;
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
-
 };
+
+std::ostream &operator<<(std::ostream &ostream, const Fixed &src);
