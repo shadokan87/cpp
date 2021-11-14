@@ -22,14 +22,18 @@ class Fixed
 		Fixed operator-(Fixed const &src);
 		Fixed operator*(Fixed const &src);
 		Fixed operator/(Fixed const &src);
-		Fixed operator++(void);
+		Fixed operator++(int n);
+		Fixed operator--(int n);
 		Fixed operator--(void);
-		//Fixed operator++(void);
-		//Fixed operator--(void);
-		int	toInt(void) const;
+		Fixed operator++(void);
+		static const Fixed &max(const Fixed &a, const Fixed &b);
+		static const Fixed &min(const Fixed &a, const Fixed &b);
+		int	toInt(void) const; 
 		float toFloat(void) const;
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
-};
-
+}; 
+ 
 std::ostream &operator<<(std::ostream &ostream, const Fixed &src);
+static const Fixed &max(const Fixed &a, const Fixed &b);
+static const Fixed &min(const Fixed &a, const Fixed &b);
