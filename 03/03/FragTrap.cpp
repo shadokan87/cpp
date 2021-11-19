@@ -4,11 +4,17 @@ typedef std::string str;
 
 FragTrap::FragTrap(void)
 {
+	hitpoints = 100;
+	energyPoints = 100;
+	attackDamage = 30;
 	std::cout << __PRETTY_FUNCTION__<< std::endl;
 }
 
 FragTrap::FragTrap(str name) : ClapTrap(name)
 {
+	hitpoints = 100;
+	energyPoints = 100;
+	attackDamage = 30;
 	std::cout << __PRETTY_FUNCTION__<< std::endl;
 }
 

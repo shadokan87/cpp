@@ -24,7 +24,7 @@ endef
 export SPLASHART
 NAME	=	DiamondTrap
 
-CC		=	clang++ -std=c++98
+CXX		=	clang++ -std=c++98
 
 RM		=	rm -f
 
@@ -43,7 +43,7 @@ all:		$(NAME)
 			@echo "$$SPLASHART"
 
 $(NAME):	$(OBJS)
-			${CC} ${CFLAGS} ${LFLAGS} -o ${NAME} ${OBJS} ${LIBFT}
+			${CXX} ${CFLAGS} ${LFLAGS} -o ${NAME} ${OBJS} ${LIBFT}
 
 clean:
 			$(RM) $(OBJS)

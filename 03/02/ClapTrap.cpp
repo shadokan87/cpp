@@ -12,7 +12,6 @@ typedef std::string str;
 ClapTrap::ClapTrap() : name(""), hitpoints($HITPOINTS), energyPoints($ENERYPOINTS), attackDamage($ATTACKDAMAGE) 
 {
 	std::cout << name << " " << __PRETTY_FUNCTION__<< std::endl;
-	//std::cout << name << $SPAWN(hitpoints, energyPoints, attackDamage) << std::endl;
 }
 
 ClapTrap::ClapTrap(str name)
@@ -21,13 +20,11 @@ ClapTrap::ClapTrap(str name)
 	hitpoints = $HITPOINTS;
 	energyPoints = $ENERYPOINTS;
 	attackDamage = $ATTACKDAMAGE;
-	//std::cout << name << $SPAWN(hitpoints, energyPoints, attackDamage) << std::endl;
 	std::cout << name << " " << __PRETTY_FUNCTION__<< std::endl;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-	//std::cout << name <<  " has left" << std::endl;
 	std::cout << name << " " << __PRETTY_FUNCTION__<< std::endl;
 }
 
