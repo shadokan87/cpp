@@ -40,7 +40,6 @@ class Animal
 {
 	private:
 		str type;
-		Brain *myBrain;
 	public:
 		virtual	~Animal(void);
 		Animal(void);
@@ -74,7 +73,11 @@ class Cat : public virtual Animal
 		Cat(void);
 };
 
-Cat::~Cat(void) {}
+Cat::~Cat(void)
+{
+	if (myBrain)
+		delete myBrain;
+}
 
 Cat::Cat(void) : Animal()
 {
@@ -96,6 +99,7 @@ class Dog : public virtual Animal
 {
 	private:
 		str type;
+		Brain *myBrain;
 	public:
 		virtual	~Dog(void);
 		void	makeSound(void);
@@ -103,11 +107,16 @@ class Dog : public virtual Animal
 		Dog(void);
 };
 
-Dog::~Dog(void) {}
+Dog::~Dog(void)
+{
+	if (myBrain)
+		delete myBrain;
+}
 
 Dog::Dog(void) : Animal()
 {
 	this->type = "Dog";
+	this->myBrain = new Brain;
 }
 
 str		Dog::getType(void)
