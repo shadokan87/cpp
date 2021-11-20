@@ -2,6 +2,12 @@
 
 typedef std::string str;
 
+ScavTrap &ScavTrap::operator=(ScavTrap &src)
+{
+	guard = src.guard;
+	return (*this);
+}
+
 ScavTrap::ScavTrap(void) : guard(false)
 {
 	std::cout << __PRETTY_FUNCTION__<< std::endl;

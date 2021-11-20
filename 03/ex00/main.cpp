@@ -4,7 +4,7 @@ typedef std::string str;
 
 int	main(void)
 {
-	ClapTrap player("player1");
+	ClapTrap player2("player1");
 
 	player.attack("a random target");
 	player.takeDamage(200);

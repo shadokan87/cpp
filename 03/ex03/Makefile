@@ -33,7 +33,7 @@ CFLAGS	=	-Wall -Wextra -Werror
 LFLAGS	=	-lpthread
 
 
-SRCS	=	./main.cpp ./ClapTrap.cpp ./FragTrap.cpp ./ScavTrap.cpp
+SRCS	=	./main.cpp ./ClapTrap.cpp ./FragTrap.cpp ./ScavTrap.cpp ./Diamond.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 

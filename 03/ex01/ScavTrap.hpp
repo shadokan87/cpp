@@ -9,6 +9,7 @@ class	ScavTrap : public ClapTrap
 		ScavTrap(str name);
 		virtual ~ScavTrap(void);
 		void	guardGate(void);
+		ScavTrap &operator=(ScavTrap &src);
 	private:
 		bool guard;
 };

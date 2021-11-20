@@ -14,6 +14,15 @@ ClapTrap::ClapTrap() : name(""), hitpoints($HITPOINTS), energyPoints($ENERYPOINT
 	std::cout << name << " " << __PRETTY_FUNCTION__<< std::endl;
 }
 
+ClapTrap &ClapTrap::operator=(ClapTrap &src)
+{
+	name = src.name;
+	hitpoints = src.hitpoints;
+	energyPoints = src.energyPoints;
+	attackDamage = src.attackDamage;
+	return (*this);
+}
+
 ClapTrap::ClapTrap(str name)
 {
 	this->name = name;

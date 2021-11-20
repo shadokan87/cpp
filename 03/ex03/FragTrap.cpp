@@ -2,6 +2,14 @@
 
 typedef std::string str;
 
+FragTrap &FragTrap::operator=(FragTrap &src)
+{
+	hitpoints = src.hitpoints;
+	energyPoints = src.energyPoints;
+	attackDamage = src.attackDamage;
+	return (*this);
+}
+
 FragTrap::FragTrap(void)
 {
 	hitpoints = 100;

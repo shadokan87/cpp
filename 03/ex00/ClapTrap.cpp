@@ -23,6 +23,15 @@ ClapTrap::ClapTrap(str name)
 	std::cout << name << $SPAWN(hitpoints, energyPoints, attackDamage) << std::endl;
 }
 
+ClapTrap &ClapTrap::operator=(ClapTrap &src)
+{
+	name = src.name;
+	hitpoints = src.hitpoints;
+	energyPoints = src.energyPoints;
+	attackDamage = src.attackDamage;
+	return (*this);
+}
+
 ClapTrap::~ClapTrap(void)
 {
 	std::cout << name <<  " has left" << std::endl;

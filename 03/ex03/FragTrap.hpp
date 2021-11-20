@@ -7,6 +7,7 @@ class	FragTrap : public ClapTrap
 		int	energyPoints;
 		int	attackDamage;
 	public:
+		FragTrap &operator=(FragTrap &src);
 		FragTrap(void);
 		FragTrap(str name);
 		virtual ~FragTrap(void);

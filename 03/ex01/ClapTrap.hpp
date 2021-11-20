@@ -11,6 +11,7 @@ class ClapTrap
 		int	attackDamage;
 	public:
 		ClapTrap(void);
+		ClapTrap &operator=(ClapTrap &src);
 		virtual ~ClapTrap(void);
 		ClapTrap(str name);
 		void	takeDamage(unsigned int amount);

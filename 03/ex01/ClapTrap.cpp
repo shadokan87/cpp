@@ -9,9 +9,17 @@
 
 typedef std::string str;
 
+ClapTrap &ClapTrap::operator=(ClapTrap &src)
+{
+	name = src.name;
+	hitpoints = src.hitpoints;
+	energyPoints = src.energyPoints;
+	attackDamage = src.attackDamage;
+	return (*this);
+}
+
 ClapTrap::ClapTrap() : name(""), hitpoints($HITPOINTS), energyPoints($ENERYPOINTS), attackDamage($ATTACKDAMAGE) 
 {
-	//std::cout << name << $SPAWN(hitpoints, energyPoints, attackDamage) << std::endl;
 	std::cout << __PRETTY_FUNCTION__<< std::endl;
 }
 
@@ -21,7 +29,6 @@ ClapTrap::ClapTrap(str name)
 	hitpoints = $HITPOINTS;
 	energyPoints = $ENERYPOINTS;
 	attackDamage = $ATTACKDAMAGE;
-	//std::cout << name << $SPAWN(hitpoints, energyPoints, attackDamage) << std::endl;
 	std::cout << __PRETTY_FUNCTION__<< std::endl;
 }
 

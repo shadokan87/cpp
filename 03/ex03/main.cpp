@@ -1,9 +1,10 @@
+#include "Diamond.hpp"
+/*
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 #define $NAME_EXPAND "_clap_name"
 
 typedef std::string str;
-
 class	Diamond : virtual public FragTrap, virtual public ScavTrap
 {
 	protected:
@@ -36,6 +37,7 @@ int	Diamond::debug(int n)
 
 Diamond &Diamond::operator=(const Diamond &src)
 {
+	name = src.name;
 	hitpoints = src.hitpoints;
 	energyPoints = src.energyPoints;
 	attackDamage = src.attackDamage;
@@ -64,7 +66,7 @@ void	Diamond::whoami()
 {
 	std::cout << "My name: " << name << std::endl << "ClapTrap name: " << FragTrap::name << std::endl;
 }
-
+*/
 int	main(void)
 {
 	std::cout << COLOR(CYAN, "---- CONSTRUCTOR CALLS ----") << std:: endl;

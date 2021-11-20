@@ -2,6 +2,11 @@
 
 typedef std::string str;
 
+FragTrap &FragTrap::operator=(FragTrap &src)
+{
+	return (*this);
+}
+
 FragTrap::FragTrap(void)
 {
 	std::cout << __PRETTY_FUNCTION__<< std::endl;
