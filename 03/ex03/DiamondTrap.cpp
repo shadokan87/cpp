@@ -1,8 +1,8 @@
-#include "Diamond.hpp"
+#include "DiamondTrap.hpp"
 
 typedef std::string str;
 
-Diamond &Diamond::operator=(const Diamond &src)
+DiamondTrap &DiamondTrap::operator=(const DiamondTrap &src)
 {
 	name = src.name;
 	hitpoints = src.hitpoints;
@@ -11,7 +11,7 @@ Diamond &Diamond::operator=(const Diamond &src)
 	return (*this);
 }
 
-Diamond::Diamond(str name) : name(name), FragTrap(name + $NAME_EXPAND), ScavTrap(name)
+DiamondTrap::DiamondTrap(str name) : name(name), FragTrap(name + $NAME_EXPAND), ScavTrap(name)
 {
 	std::cout << COLOR(GREEN, __PRETTY_FUNCTION__) << std::endl;
 	hitpoints = FragTrap::hitpoints;
@@ -19,31 +19,31 @@ Diamond::Diamond(str name) : name(name), FragTrap(name + $NAME_EXPAND), ScavTrap
 	attackDamage = FragTrap::attackDamage;
 }
 
-Diamond::Diamond()
+DiamondTrap::DiamondTrap()
 {
 	std::cout << COLOR(GREEN,  __PRETTY_FUNCTION__) << std::endl;
 }
 
-Diamond::~Diamond()
+DiamondTrap::~DiamondTrap()
 {
 	std::cout << COLOR(GREEN, __PRETTY_FUNCTION__ ) << std::endl;
 }
 
-void	Diamond::whoami()
+void	DiamondTrap::whoAmI()
 {
 	std::cout << "My name: " << name << std::endl << "ClapTrap name: " << FragTrap::name << std::endl;
 }
 
-int	Diamond::debug(int n)
+int	DiamondTrap::debug(int n)
 {
 	switch (n)
 	{
 		case 0:
-			return (Diamond::hitpoints);
+			return (DiamondTrap::hitpoints);
 		case 1:
-			return (Diamond::energyPoints);
+			return (DiamondTrap::attackDamage);
 		case 2:
-			return (Diamond::attackDamage);
+			return (DiamondTrap::energyPoints);
 	}
 	return (-1);
 }

@@ -9,14 +9,22 @@ AMateria	AMateria.cpp	/^AMateria::AMateria(str const & type)$/;"	f	class:AMateri
 AMateria	AMateria.cpp	/^AMateria::AMateria(void)$/;"	f	class:AMateria
 AMateria	AMateria.hpp	/^class	AMateria$/;"	c
 CHARACTER_HPP	Character.hpp	/^# define CHARACTER_HPP$/;"	d
+CURE_HPP	Cure.hpp	/^#define CURE_HPP$/;"	d
 Character	Character.cpp	/^Character::Character(const Character & src)$/;"	f	class:Character
 Character	Character.cpp	/^Character::Character(str name)$/;"	f	class:Character
 Character	Character.cpp	/^Character::Character(void) : pos(0)$/;"	f	class:Character
 Character	Character.hpp	/^class	Character : public virtual ICharacter$/;"	c
+Cure	Cure.cpp	/^Cure::Cure(const Cure & src) : AMateria()$/;"	f	class:Cure
+Cure	Cure.cpp	/^Cure::Cure(void) : AMateria()$/;"	f	class:Cure
+Cure	Cure.hpp	/^class Cure : virtual public AMateria$/;"	c
+ICE_HPP	Ice.hpp	/^#define ICE_HPP$/;"	d
 ICHARACTER_HPP	ICharacter.hpp	/^# define ICHARACTER_HPP$/;"	d
 ICharacter	ICharacter.hpp	/^class ICharacter$/;"	c
 IMATERIASOURCE_HPP	IMateriaSource.hpp	/^# define IMATERIASOURCE_HPP$/;"	d
 IMateriaSource	IMateriaSource.hpp	/^class	IMateriaSource$/;"	c
+Ice	Ice.cpp	/^Ice::Ice(const Ice & src) : AMateria()$/;"	f	class:Ice
+Ice	Ice.cpp	/^Ice::Ice(void) : AMateria()$/;"	f	class:Ice
+Ice	Ice.hpp	/^class Ice : virtual public AMateria$/;"	c
 MATERIASOURCE_HPP	MateriaSource.hpp	/^# define MATERIASOURCE_HPP$/;"	d
 MateriaSource	MateriaSource.cpp	/^MateriaSource::MateriaSource(const MateriaSource &src)$/;"	f	class:MateriaSource
 MateriaSource	MateriaSource.cpp	/^MateriaSource::MateriaSource(void) : pos(0)$/;"	f	class:MateriaSource
@@ -28,6 +36,8 @@ _for_each	IMateriaSource.hpp	/^#define _for_each(/;"	d
 _for_each	MateriaSource.hpp	/^#define _for_each(/;"	d
 arr	Character.hpp	/^		AMateria *arr[4];$/;"	m	class:Character
 arr	MateriaSource.hpp	/^		AMateria *arr[4];$/;"	m	class:MateriaSource
+clone	Cure.cpp	/^AMateria *Cure::clone(void) const$/;"	f	class:Cure
+clone	Ice.cpp	/^AMateria *Ice::clone(void) const$/;"	f	class:Ice
 createMateria	MateriaSource.cpp	/^AMateria*	MateriaSource::createMateria(str const & type)$/;"	f	class:MateriaSource
 equip	Character.cpp	/^void	Character::equip(AMateria *m)$/;"	f	class:Character
 getName	Character.cpp	/^const str &Character::getName(void) const$/;"	f	class:Character
@@ -37,6 +47,8 @@ main	main.cpp	/^int	main(void)$/;"	f
 name	Character.hpp	/^		str name;$/;"	m	class:Character
 operator =	AMateria.cpp	/^AMateria &AMateria::operator=(AMateria const & src)$/;"	f	class:AMateria
 operator =	Character.cpp	/^Character &Character::operator=(const Character & src)$/;"	f	class:Character
+operator =	Cure.cpp	/^Cure &Cure::operator=(Cure const & src)$/;"	f	class:Cure
+operator =	Ice.cpp	/^Ice &Ice::operator=(Ice const & src)$/;"	f	class:Ice
 operator =	MateriaSource.cpp	/^MateriaSource &MateriaSource::operator=(const MateriaSource &src)$/;"	f	class:MateriaSource
 pos	Character.hpp	/^		int	pos;$/;"	m	class:Character
 pos	MateriaSource.hpp	/^		int		pos;$/;"	m	class:MateriaSource
@@ -49,8 +61,12 @@ type	AMateria.hpp	/^		str type;$/;"	m	class:AMateria
 unequip	Character.cpp	/^void	Character::unequip(int idx)$/;"	f	class:Character
 use	AMateria.cpp	/^void AMateria::use(ICharacter& target)$/;"	f	class:AMateria
 use	Character.cpp	/^void	Character::use(int idx, ICharacter& target)$/;"	f	class:Character
+use	Cure.cpp	/^void	Cure::use(ICharacter & target)$/;"	f	class:Cure
+use	Ice.cpp	/^void	Ice::use(ICharacter & target)$/;"	f	class:Ice
 ~AMateria	AMateria.cpp	/^AMateria::~AMateria(void)$/;"	f	class:AMateria
 ~Character	Character.cpp	/^Character::~Character(void)$/;"	f	class:Character
+~Cure	Cure.cpp	/^Cure::~Cure(void)$/;"	f	class:Cure
 ~ICharacter	ICharacter.hpp	/^		virtual ~ICharacter(void) {};$/;"	f	class:ICharacter
 ~IMateriaSource	IMateriaSource.hpp	/^		virtual				~IMateriaSource(void) {};$/;"	f	class:IMateriaSource
+~Ice	Ice.cpp	/^Ice::~Ice(void)$/;"	f	class:Ice
 ~MateriaSource	MateriaSource.cpp	/^MateriaSource::~MateriaSource(void)$/;"	f	class:MateriaSource

@@ -4,7 +4,7 @@ typedef std::string str;
 
 class ClapTrap
 {
-	private:
+	protected:
 		str name;
 		int	hitpoints;
 		int	energyPoints;

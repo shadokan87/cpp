@@ -6,7 +6,7 @@
 #define RESET   "\033[0m"
 #define COLOR(C, c) C << c << RESET
 #define _TAB(x) "\t";x
-
+/*
 typedef std::string str;
 
 class	Brain
@@ -41,13 +41,14 @@ Brain::Brain(const Brain &src)
 {
 	*this = src;
 }
+*/
 //--- CLASS ANIMAL ----
 class Animal
 {
 	private:
 		str type;
 	public:
-		virtual	~Animal(void);
+		virtual	~Animal(void) = 0;
 		Animal &operator=(Animal &src);
 		Animal(void);
 		virtual void makeSound(void);

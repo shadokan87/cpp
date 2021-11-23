@@ -19,7 +19,7 @@ void	Character::unequip(int idx)
 
 Character &Character::operator=(const Character & src)
 {
-	_for_each(arr, pos, true, delete arr[_]);
+	_for_each(arr, pos, if (tab[_]), delete arr[_]);
 	_for_each(arr, src.pos, true, arr[_] = src.arr[_]->clone());
 	name = src.name;
 	pos = src.pos;

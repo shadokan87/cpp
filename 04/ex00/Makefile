@@ -22,7 +22,7 @@ define SPLASHART
    ::::::`:::::;'  /  /   `# 
 endef
 export SPLASHART
-NAME	=	DiamondTrap
+NAME	=	Animal
 
 CXX		=	clang++ -std=c++98
 
@@ -33,7 +33,7 @@ CFLAGS	=	-Wall -Wextra -Werror
 LFLAGS	=	-lpthread
 
 
-SRCS	=	./main.cpp ./ClapTrap.cpp ./FragTrap.cpp ./ScavTrap.cpp ./DiamondTrap.cpp
+SRCS	=	./main.cpp ./Animal.cpp ./Dog.cpp ./Cat.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 
