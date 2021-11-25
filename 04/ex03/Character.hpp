@@ -3,6 +3,7 @@
 #include "./ICharacter.hpp"
 #include "./AMateria.hpp"
 #include <iostream>
+#define do_if(A, C1) if (C1)A
 #define _for_each(A, S, C1, C2) for (int _ = 0;_ < S;_++)if (C1)C2
 typedef std::string str;
 class	ICharacter;

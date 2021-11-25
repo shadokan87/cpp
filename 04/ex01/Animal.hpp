@@ -7,7 +7,7 @@ class Animal
 	private:
 		str type;
 	public:
-		virtual	~Animal(void) = 0;
+		virtual	~Animal(void);
 		Animal &operator=(Animal &src);
 		Animal(void);
 		virtual void makeSound(void);
