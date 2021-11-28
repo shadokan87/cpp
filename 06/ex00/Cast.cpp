@@ -27,16 +27,26 @@ Cast &Cast::operator=(Cast &src)
 
 void	Cast::print(void)
 {
-	if (isprint(_char))
+	bool one = (arg == "-inff" || arg == "+ inff" || arg == "nanf");
+	bool two = (arg == "-inf" || arg == "+ inf" || arg == "nan");
+	if (isprint(_char) && !one && !two)
 		std::cout << "char: " << _char << std::endl;
-	else
+	else if (!one && !two)
 		std::cout << "char: Not printable." << std::endl;
-	std::cout << "int: " << _int << std::endl;
-	if (arg == "-inff" || arg == "+ inff" || arg == "nanf")
+	else
+		std::cout << "char: impossible." << std::endl;
+	// -----
+	if (!one && !two)
+		std::cout << "int: " << _int << std::endl;
+	else
+		std::cout << "int: impossible." << std::endl;
+	// -----
+	if (one)
 		std::cout << "float: " << arg << std::endl;
 	else
 		std::cout << "float: " << std::fixed << std::setprecision(1) << _float << "f" << std::endl;
-	if (arg == "-inf" || arg == "+ inf" || arg == "nan")
+	// -----
+	if (two)
 		std::cout << "double: " << arg << std::endl;
 	else
 		std::cout << "double: " << _double << std::endl;

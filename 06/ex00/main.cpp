@@ -10,5 +10,5 @@ int	main(int argc, char **argv)
 	}
 	Cast onsenfoudunom(argv[1]);
 	onsenfoudunom.print();
-	//std::cout << onsenfoudunom << std::endl;
+	return (0);
 }
