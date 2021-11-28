@@ -31,7 +31,18 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	Bureaucrat thisIsBob;
+	try
+	{
+		Form test(argv[1], ft::stoi(argv[2]), ft::stoi(argv[3]));
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << COLOR(YELLOW, "[!]") << e.what() << std::endl;
+		std::cout << "exiting now." << std::endl;
+		return (0);
+	}
 	Form form(argv[1], ft::stoi(argv[2]), ft::stoi(argv[3]));
+	std::cout << "[?]Use '+' and '-' key to modify grade, 's' key to try and sign the form" << std::endl;
 	str in = "";
 	while (1 && !std::cin.eof() && !(in == "EXIT"))
 	{
@@ -39,7 +50,7 @@ int	main(int argc, char **argv)
 		do_if(
 			try
 			{
-				form.beSigned(thisIsBob);
+				Form ret = form.beSigned(thisIsBob);
 				std::cout << form;
 			}
 			catch (const std::exception &e)

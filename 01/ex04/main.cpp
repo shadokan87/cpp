@@ -57,7 +57,7 @@ int	main(int argc, char **argv)
 		}
 	}
 	std::ifstream src(argv[1]);
-	std:: ofstream dst(strUpper(static_cast<str>(argv[1]) + ".replace"));
+	std::ofstream dst(strUpper(static_cast<str>(argv[1]) + ".replace"));
 	str line;
 	str buff = "";
 	if (src.fail() || !src.is_open())

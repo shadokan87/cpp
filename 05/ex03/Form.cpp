@@ -32,12 +32,12 @@ int	Form::getExecuteGrade(void)
 	return (executeGrade);
 }
 
-bool	Form::getStatus(void)
+bool	Form::getStatus(void) const
 {
 	return (isSigned);
 }
 
-str Form::getName(void)
+str Form::getName(void) const
 {
 	return (name);
 }
