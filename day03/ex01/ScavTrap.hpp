@@ -1,0 +1,15 @@
+#include "ClapTrap.hpp"
+
+typedef std::string str;
+
+class	ScavTrap : public ClapTrap
+{
+	public:
+		ScavTrap(void);
+		ScavTrap(str name);
+		virtual ~ScavTrap(void);
+		void	guardGate(void);
+		ScavTrap &operator=(ScavTrap &src);
+	private:
+		bool guard;
+};
